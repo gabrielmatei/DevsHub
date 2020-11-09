@@ -32,11 +32,25 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'nuxt-i18n'
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
+
+  i18n: {
+    locales: [
+      { code: 'ro', iso: 'ro-RO', file: 'ro-RO.js' }
+    ],
+    lazy: true,
+    langDir: 'lang/',
+    defaultLocale: 'ro',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected'
+    }
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
