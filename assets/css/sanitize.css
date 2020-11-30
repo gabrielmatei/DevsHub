@@ -526,7 +526,7 @@ select,
 summary,
 textarea,
 [tabindex] {
-  -ms-touch-action: manipulation;
+  touch-action: manipulation;
 }
 
 /**
