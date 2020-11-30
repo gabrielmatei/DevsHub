@@ -9,12 +9,10 @@
 }
 
 .fa-primary {
-  /* color: #B9F6CA; */
   color: #388E3C;
 }
 
 .fa-secondary {
-  /* color: #00C853; */
   color: #00C853;
 }
 
@@ -35,11 +33,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: #1e1e24;
+  background: var(--bg-secondary)
 }
 
 body::-webkit-scrollbar-thumb {
-  background: #6649b8;
+  background: #00C853;
 }
 
 main {
@@ -57,7 +55,7 @@ main {
   top: 0;
   width: 5rem;
   height: 100vh;
-  box-shadow: 5px 0px 10px 0px rgba(0,0,0,0.50);
+  box-shadow: 5px 0px 10px 0px rgba(0,0,0,0.5);
 }
 
 .navbar:hover {
