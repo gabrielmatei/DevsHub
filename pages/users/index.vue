@@ -1,22 +1,27 @@
 <template>
   <div class="container">
-    <Loader v-if="$fetchState.pending" />
     <h1>{{ $t('users.title') }}</h1>
-    <button @click="$fetch">
-      Refresh
-    </button>
-    {{ users }}
+    <UserListView v-for="user in users" :key="user.id" :user="user" />
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import UserListView from '@/components/users/UserListView'
+
 export default {
-  async fetch () {
-    this.users = await fetch('https://api.nuxtjs.dev/mountains')
-      .then(res => res.json())
+  components: {
+    UserListView
   },
-  data: () => ({
-    users: []
-  })
+  async fetch ({ store }) {
+    await store.dispatch('users/getUsers')
+  },
+  computed: {
+    ...mapState({
+      users: (state) => {
+        return state.users.users
+      }
+    })
+  }
 }
 </script>

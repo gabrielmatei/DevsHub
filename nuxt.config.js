@@ -1,5 +1,4 @@
 export default {
-  // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'DevsHub',
     meta: [
@@ -12,36 +11,25 @@ export default {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Oxygen&display=swap' }
     ]
   },
-
-  // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '@/assets/css/sanitize.css',
     '@/assets/css/main.css'
   ],
-
-  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    '~/plugins/axios.js',
+    '~/plugins/repositories.js'
   ],
-
-  // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
-
-  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module'
   ],
-
-  // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     'nuxt-i18n'
   ],
-
-  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
-
+  axios: {
+    baseURL: process.env.APi_BASE_URL || 'https://localhost:44300/api/'
+  },
   i18n: {
     locales: [
       { code: 'ro', iso: 'ro-RO', file: 'ro-RO.js' }
@@ -54,8 +42,6 @@ export default {
       cookieKey: 'i18n_redirected'
     }
   },
-
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
   }
 }
