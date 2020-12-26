@@ -33,6 +33,11 @@
   --gray6: #12181b;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .fa-primary {
   color: #388E3C;
 }
@@ -176,6 +181,48 @@ h1 {
 }
 /* END TYPOGRAPHY */
 
+/* HELPERS */
+.w-100 {
+  width: 100%;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+/* END HELPERS */
+
+/* BUTTONS */
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  color: var(--text-primary);
+  background-color: var(--gray4);
+  cursor: pointer;
+  transition: var(--transition-speed);
+}
+
+.btn:hover {
+  background-color: var(--gray3);
+}
+
+.btn-primary {
+  background-color: var(--blue);
+}
+
+.btn-primary:hover {
+  background-color: var(--blue-light);
+}
+
+.btn-danger {
+  background-color: var(--red);
+}
+
+.btn-danger:hover {
+  background-color: var(--red-light);
+}
+/* END BUTTONS */
+
 /* CARDS */
 .card {
   display: flex;
@@ -211,3 +258,27 @@ h1 {
   background-color: var(--red);
 }
 /* END CHIP */
+
+/* FORM */
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field .input {
+  padding: 10px;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  border: none;
+  outline: none;
+}
+
+.form-field .input.invalid {
+  border-bottom: 3px solid var(--red);
+}
+
+.form-field .error {
+  color: var(--red);
+  font-size: .75rem;
+}
+/* END FORM */

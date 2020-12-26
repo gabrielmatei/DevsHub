@@ -4,7 +4,7 @@
       {{ user.profile.name }}
     </div>
     <div class="rating">
-      <span class="chip">Rating {{ user.profile.rating }}</span>
+      <span class="chip">{{ $t('users.title') }} {{ user.profile.rating }}</span>
     </div>
     <div class="role">
       <span :class="`chip chip-${user.role}`">{{ user.role }}</span>

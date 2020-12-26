@@ -16,7 +16,8 @@ export default {
     }
   },
   users: {
-    title: 'Utilizatori'
+    title: 'Utilizatori',
+    rating: 'Rating'
   },
   contests: {
     title: 'Concursuri'

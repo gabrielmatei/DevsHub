@@ -25,10 +25,22 @@ export default {
   ],
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
     'nuxt-i18n'
   ],
   axios: {
     baseURL: process.env.APi_BASE_URL || 'https://localhost:44300/api/'
+  },
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: 'v1/account/login', method: 'post', propertyName: 'token' },
+          user: { url: 'v1/account', method: 'get', propertyName: false },
+          logout: false
+        }
+      }
+    }
   },
   i18n: {
     locales: [
