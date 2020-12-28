@@ -11,6 +11,10 @@
 import { mapState } from 'vuex'
 
 export default {
+  middleware: 'identity',
+  meta: {
+    roles: ['user']
+  },
   computed: {
     ...mapState({
       loggedInUser: (state) => {

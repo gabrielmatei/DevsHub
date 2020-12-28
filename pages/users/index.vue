@@ -10,6 +10,10 @@ import { mapState } from 'vuex'
 import UserListView from '@/components/users/UserListView'
 
 export default {
+  middleware: 'identity',
+  meta: {
+    roles: ['any']
+  },
   components: {
     UserListView
   },
