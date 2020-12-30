@@ -172,8 +172,16 @@ main {
   left: -999px;
   transition: var(--transition-speed);
 }
-
 /* END NAVBAR */
+
+/* CONTAINERS */
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+/* END CONTAINERS */
 
 /* TYPOGRAPHY */
 h1 {
@@ -200,6 +208,7 @@ h1 {
   background-color: var(--gray4);
   cursor: pointer;
   transition: var(--transition-speed);
+  text-decoration: none;
 }
 
 .btn:hover {
@@ -265,7 +274,8 @@ h1 {
   flex-direction: column;
 }
 
-.form-field .input {
+.form-field .input,
+.vdp-datepicker input {
   padding: 10px;
   color: var(--text-primary);
   background-color: var(--bg-primary);
@@ -273,7 +283,8 @@ h1 {
   outline: none;
 }
 
-.form-field .input.invalid {
+.form-field .input.invalid,
+.vdp-datepicker.invalid input {
   border-bottom: 3px solid var(--red);
 }
 
@@ -282,3 +293,47 @@ h1 {
   font-size: .75rem;
 }
 /* END FORM */
+
+/* CALENDAR */
+.vdp-datepicker__calendar {
+  color: var(--text-primary) !important;
+  background-color: var(--bg-primary) !important;
+}
+/* CALENDAR */
+
+/* MODAL */
+.modal {
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal .container {
+  background: var(--bg-secondary);
+  width: 450px;
+}
+
+.modal .header {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.modal .body {
+  padding: 20px;
+}
+
+.modal .footer {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+/* END MODAL */

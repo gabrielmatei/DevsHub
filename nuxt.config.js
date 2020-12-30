@@ -17,7 +17,10 @@ export default {
   ],
   plugins: [
     '~/plugins/axios.js',
-    '~/plugins/repositories.js'
+    '~/plugins/repositories.js',
+    '~/plugins/moment.js',
+    { src: '~/plugins/loader', ssr: false },
+    { src: '~/plugins/vue-datepicker', ssr: false }
   ],
   components: true,
   buildModules: [

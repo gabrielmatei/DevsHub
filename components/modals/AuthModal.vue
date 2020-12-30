@@ -39,38 +39,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.modal {
-  height: 100vh;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.75);
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal .container {
-  background: var(--bg-secondary);
-  width: 450px;
-}
-
-.modal .header {
-  padding: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-
-.modal .body {
-  padding: 20px;
-}
-
-.modal .footer {
-  padding: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-</style>
