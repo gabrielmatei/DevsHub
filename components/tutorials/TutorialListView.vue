@@ -1,13 +1,13 @@
 <template>
-  <nuxt-link class="card contest" :to="`/contests/${contest.id}`">
-    {{ contest }}
+  <nuxt-link class="card tutorial" :to="`/tutorials/${tutorial.id}`">
+    {{ tutorial }}
   </nuxt-link>
 </template>
 
 <script>
 export default {
   props: {
-    contest: {
+    tutorial: {
       type: Object,
       required: true
     }
