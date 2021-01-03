@@ -1,11 +1,15 @@
-const resource = 'v1/announcements'
+const resource = 'v1/contests'
 export default $axios => ({
   getAll () {
     return $axios.get(`${resource}`)
   },
 
+  get (id) {
+    return $axios.get(`${resource}/${id}`)
+  },
+
   create (payload) {
-    return $axios.post(`${resource}`, payload)
+    return $axios.post(`${resource}/`, payload)
   },
 
   update (id, payload) {

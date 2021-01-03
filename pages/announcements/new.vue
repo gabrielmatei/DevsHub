@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Loader v-if="isLoading" />
+    <loader v-if="isLoading" />
     <div class="header">
       <h1>Adauga anunt</h1>
     </div>
@@ -52,7 +52,7 @@
       </div>
       <div class="form-field mb-20">
         <client-only>
-          <date-picker v-model="end.value" class="form-field mb-20" />
+          <date-picker v-model="end.value" :class="`${end.errors.length > 0 ? 'invalid' : ''}`" />
         </client-only>
         <span v-for="error in end.errors" :key="error" class="error">
           {{ error }}

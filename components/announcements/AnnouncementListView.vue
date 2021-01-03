@@ -20,9 +20,6 @@ export default {
       required: true
     }
   },
-  async fetch ({ store }) {
-    await store.dispatch('announcements/getAnnouncements')
-  },
   computed: {
     ...mapState({
       role: (state) => {
