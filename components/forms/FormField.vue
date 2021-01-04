@@ -1,5 +1,5 @@
 <template>
-  <div class="form-field mb-20">
+  <div :class="cssClass">
     <input
       v-if="type === 'input'"
       v-model="model.value"
@@ -35,6 +35,11 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    cssClass: {
+      type: String,
+      required: false,
+      default: 'form-field mb-20'
     },
     type: {
       type: String,

@@ -1,6 +1,7 @@
 export const state = () => ({
   tutorials: [],
-  tutorial: undefined
+  tutorial: undefined,
+  categories: []
 })
 
 export const mutations = {
@@ -9,6 +10,9 @@ export const mutations = {
   },
   saveTutorial: (state, tutorial) => {
     state.tutorial = tutorial
+  },
+  saveCategories: (state, categories) => {
+    state.categories = categories
   }
 }
 
@@ -26,6 +30,15 @@ export const actions = {
     const { status, data } = await this.$repositories.tutorials.get(id)
     if (status === 200) {
       commit('saveTutorial', data)
+    } else {
+      // TODO error
+    }
+  },
+  async getCategories ({ commit }) {
+    const { status, data } = await this.$repositories.tutorialCategories.getAll()
+    if (status === 200) {
+      const { tutorialCategories } = data
+      commit('saveCategories', tutorialCategories)
     } else {
       // TODO error
     }

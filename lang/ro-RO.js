@@ -4,6 +4,7 @@ export default {
     users: 'Utilizatori',
     contests: 'Concursuri',
     tutorials: 'Tutoriale',
+    tutorialCategories: 'Categorii tutoriale',
     announcements: 'Anunțuri',
     login: 'Autentificare'
   },
@@ -24,6 +25,9 @@ export default {
   },
   tutorials: {
     title: 'Tutoriale'
+  },
+  tutorialCategories: {
+    title: 'Categorii tutoriale'
   },
   announcements: {
     title: 'Anunțuri'

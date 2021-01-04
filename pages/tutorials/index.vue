@@ -6,7 +6,19 @@
         Adauga tutorial
       </nuxt-link>
     </div>
-    <TutorialListView v-for="tutorial in tutorials" :key="tutorial.id" :tutorial="tutorial" />
+    <div class="content">
+      <div class="list mr-20">
+        <TutorialListView v-for="tutorial in tutorials" :key="tutorial.id" :tutorial="tutorial" />
+      </div>
+      <div class="aside card">
+        <h3 class="mb-20">
+          Categorii
+        </h3>
+        <p v-for="category in categories" :key="category.id">
+          {{ category.name }}
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -23,6 +35,7 @@ export default {
     TutorialListView
   },
   async fetch ({ store }) {
+    await store.dispatch('tutorials/getCategories')
     await store.dispatch('tutorials/getTutorials')
   },
   computed: {
@@ -32,8 +45,29 @@ export default {
       },
       tutorials: (state) => {
         return state.tutorials.tutorials
+      },
+      categories: (state) => {
+        return state.tutorials.categories
       }
     })
   }
 }
 </script>
+
+<style scoped>
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.list {
+  flex-grow: 1;
+}
+
+.aside {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+</style>
