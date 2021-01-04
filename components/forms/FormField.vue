@@ -5,14 +5,14 @@
       v-model="model.value"
       :class="`input ${model.errors.length > 0 ? 'invalid' : ''}`"
       type="text"
-      placeholder="name"
+      :placeholder="placeholder"
     >
     <textarea
       v-if="type === 'textarea'"
       v-model="model.value"
       :class="`input ${model.errors.length > 0 ? 'invalid' : ''}`"
       type="text"
-      placeholder="description"
+      :placeholder="placeholder"
       rows="4"
     />
     <client-only v-if="type === 'date'">

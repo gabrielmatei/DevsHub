@@ -1,26 +1,25 @@
 <template>
   <div class="container">
     <div class="header">
-      <h1>{{ $t('users.title') }}</h1>
+      <h1>{{ user.profile.name }}</h1>
+      <nuxt-link v-if="role ==='admin'" :to="`/users/${user.id}/edit`" class="btn btn-primary">
+        Edit
+      </nuxt-link>
     </div>
-    <UserListView v-for="user in users" :key="user.id" :user="user" />
+    {{ user }}
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import UserListView from '@/components/users/UserListView'
 
 export default {
   middleware: 'identity',
   meta: {
     roles: ['any']
   },
-  components: {
-    UserListView
-  },
-  async fetch ({ store }) {
-    await store.dispatch('users/getUsers')
+  async fetch ({ store, route }) {
+    await store.dispatch('users/getUser', { id: route.params.id })
   },
   computed: {
     ...mapState({
@@ -30,8 +29,8 @@ export default {
         }
         return state.auth.user.role
       },
-      users: (state) => {
-        return state.users.users
+      user: (state) => {
+        return state.users.user
       }
     })
   }
