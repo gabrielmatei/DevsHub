@@ -1,12 +1,12 @@
 <template>
   <nuxt-link class="card user" :to="`/users/${user.id}`">
-    <div class="name">
-      {{ user.profile.name }}
-    </div>
-    <div class="rating">
+    <div class="content mr-20">
+      <h4 class="title mb-10">
+        {{ user.profile.name }}
+      </h4>
       <span class="chip">{{ $t('users.rating') }} {{ user.profile.rating }}</span>
     </div>
-    <div class="role">
+    <div class="actions">
       <span :class="`chip chip-${user.role}`">{{ user.role }}</span>
     </div>
   </nuxt-link>

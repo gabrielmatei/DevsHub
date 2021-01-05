@@ -1,12 +1,19 @@
 <template>
   <div :class="`card announcement ${announcement.type.toLowerCase()}`">
-    {{ announcement.title }}
-    {{ announcement.body }}
-    {{ announcement.start | formatDate }}
-    {{ announcement.end | formatDate }}
-    <nuxt-link v-if="role ==='admin'" :to="`/announcements/${announcement.id}/edit`" class="btn">
-      Edit
-    </nuxt-link>
+    <div class="content">
+      <span class="date">{{ announcement.start | formatDate }} - {{ announcement.end | formatDate }}</span>
+      <h4 class="title">
+        {{ announcement.title }}
+      </h4>
+      <p class="description">
+        {{ announcement.body }}
+      </p>
+    </div>
+    <div class="actions">
+      <nuxt-link v-if="role ==='admin'" :to="`/announcements/${announcement.id}/edit`" class="btn">
+        Edit
+      </nuxt-link>
+    </div>
   </div>
 </template>
 

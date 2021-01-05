@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container categories">
     <div class="header">
       <h1>{{ $t('tutorialCategories.title') }}</h1>
     </div>

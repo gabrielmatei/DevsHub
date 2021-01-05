@@ -1,12 +1,15 @@
 <template>
   <div class="container">
     <div class="header">
-      <h1>Contest</h1>
+      <h1>{{ contest.name }}</h1>
       <nuxt-link v-if="role ==='admin' || role === 'organizer'" :to="`/contests/${contest.id}/edit`" class="btn btn-primary">
         Edit
       </nuxt-link>
     </div>
-    {{ contest }}
+    <p class="date">
+      {{ contest.start | formatDateTime }} - {{ contest.end | formatDateTime }}
+    </p>
+    <p>{{ contest.description }}</p>
   </div>
 </template>
 

@@ -6,10 +6,9 @@
         Edit
       </nuxt-link>
     </div>
-    {{ tutorial.author }}
-    <p>
-      {{ tutorial.content }}
-    </p>
+    <p>Data: {{ tutorial.updatedAt | formatDateTime }}</p>
+    <p>Autor: {{ tutorial.author.name }}</p>
+    <p>{{ tutorial.content }}</p>
   </div>
 </template>
 

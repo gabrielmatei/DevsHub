@@ -1,11 +1,13 @@
 <template>
   <div class="card tutorial-category">
     <loader v-if="isLoading" />
-    <div v-if="!editing">
-      {{ category.name }}
+    <div v-if="!editing" class="content">
+      <h4>
+        {{ category.name }}
+      </h4>
     </div>
     <div v-if="!editing" class="actions">
-      <button class="btn btn-primary" @click.prevent="editing = true">
+      <button class="btn btn-primary mr-10" @click.prevent="editing = true">
         Editeaza
       </button>
       <button class="btn btn-danger" @click.prevent="deleteModal = true">
@@ -15,7 +17,7 @@
 
     <FormField v-if="editing" :model="form.name" type="input" placeholder="name" css-class="form-field" />
     <div v-if="editing" class="actions">
-      <button class="btn btn-primary" @click.prevent="save">
+      <button class="btn btn-primary mr-10" @click.prevent="save">
         Salveaza
       </button>
       <button class="btn btn-danger" @click.prevent="editing = false">
@@ -87,3 +89,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.actions {
+  flex-direction: row;
+}
+</style>
