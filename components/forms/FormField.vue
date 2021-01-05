@@ -7,6 +7,22 @@
       type="text"
       :placeholder="placeholder"
     >
+    <input
+      v-if="type === 'email'"
+      v-model="model.value"
+      :class="`input ${model.errors.length > 0 ? 'invalid' : ''}`"
+      type="email"
+      :placeholder="placeholder"
+      autocomplete="off"
+    >
+    <input
+      v-if="type === 'password'"
+      v-model="model.value"
+      :class="`input ${model.errors.length > 0 ? 'invalid' : ''}`"
+      type="password"
+      :placeholder="placeholder"
+      autocomplete="off"
+    >
     <textarea
       v-if="type === 'textarea'"
       v-model="model.value"

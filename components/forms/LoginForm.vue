@@ -1,35 +1,14 @@
 <template>
   <div>
-    <Loader v-if="isLoading" />
+    <loader v-if="isLoading" />
+    <div v-if="error" class="alert alert-danger">
+      Emailul si parola nu se potrivesc
+    </div>
     <h2 class="mb-20">
       Log in
     </h2>
-    <div class="form-field mb-20">
-      <input
-        id="email"
-        v-model="email.value"
-        :class="`input ${email.errors.length > 0 ? 'invalid' : ''}`"
-        type="email"
-        placeholder="email"
-        autocomplete="off"
-      >
-      <span v-for="error in email.errors" :key="error" class="error">
-        {{ error }}
-      </span>
-    </div>
-    <div class="form-field mb-20">
-      <input
-        id="password"
-        v-model="password.value"
-        :class="`input ${password.errors.length > 0 ? 'invalid' : ''}`"
-        type="password"
-        placeholder="password"
-        autocomplete="off"
-      >
-      <span v-for="error in password.errors" :key="error" class="error">
-        {{ error }}
-      </span>
-    </div>
+    <FormField :model="form.email" type="email" placeholder="email" />
+    <FormField :model="form.password" type="password" placeholder="password" />
     <button class="btn btn-primary w-100" @click.prevent="login">
       Log in
     </button>
@@ -37,29 +16,41 @@
 </template>
 
 <script>
+import FormField from '@/components/forms/FormField'
+
 export default {
+  components: {
+    FormField
+  },
   data: () => ({
     isLoading: false,
-    email: {
-      value: '',
-      errors: []
-    },
-    password: {
-      value: '',
-      errors: []
+    error: false,
+    form: {
+      email: {
+        value: '',
+        errors: []
+      },
+      password: {
+        value: '',
+        errors: []
+      }
     }
   }),
+  computed: {
+    formData () {
+      const data = {}
+      for (const [key, val] of Object.entries(this.form)) {
+        data[key] = val.value
+      }
+      return data
+    }
+  },
   methods: {
     async login () {
       this.isLoading = true
+      this.error = false
       try {
-        await this.$auth.loginWith('local', {
-          data: {
-            email: this.email.value,
-            password: this.password.value
-          }
-        })
-
+        await this.$auth.loginWith('local', { data: this.formData })
         this.$router.push('/')
         this.isLoading = false
       } catch (error) {
@@ -68,12 +59,17 @@ export default {
       }
     },
     showErrors (errors) {
-      this.email.errors = []
-      this.password.errors = []
+      for (const [key] of Object.entries(this.form)) {
+        this.form[key].errors = []
+      }
 
-      errors.forEach((error) => {
-        this[error.fieldName].errors.push(error.message)
-      })
+      if (errors) {
+        errors.forEach((error) => {
+          this.form[error.fieldName].errors.push(error.message)
+        })
+      } else {
+        this.error = true
+      }
     }
   }
 }
