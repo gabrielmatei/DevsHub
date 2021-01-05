@@ -30,6 +30,7 @@
 import { mapState } from 'vuex'
 import api from '@/mixins/api'
 import DeleteModal from '@/components/modals/DeleteModal'
+import FormField from '@/components/forms/FormField'
 
 export default {
   middleware: 'identity',
@@ -37,7 +38,8 @@ export default {
     roles: ['admin', 'organizer']
   },
   components: {
-    DeleteModal
+    DeleteModal,
+    FormField
   },
   mixins: [api],
   async fetch ({ store, route }) {

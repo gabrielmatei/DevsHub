@@ -1,6 +1,11 @@
 <template>
   <div class="container">
-    <h1>{{ loggedInUser.profile.name }}</h1>
+    <div class="header">
+      <h1>{{ loggedInUser.profile.name }}</h1>
+      <nuxt-link to="/account/edit" class="btn btn-primary">
+        Editeaza
+      </nuxt-link>
+    </div>
     <button class="btn btn-danger" @click="logout">
       Log out
     </button>
