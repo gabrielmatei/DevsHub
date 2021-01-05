@@ -19,47 +19,23 @@
 </template>
 
 <script>
+import api from '@/mixins/api'
 import FormField from '@/components/forms/FormField'
 
 export default {
   components: {
     FormField
   },
+  mixins: [api],
   data: () => ({
-    isLoading: false,
-    error: false,
     form: {
-      firstname: {
-        value: '',
-        errors: []
-      },
-      lastname: {
-        value: '',
-        errors: []
-      },
-      email: {
-        value: '',
-        errors: []
-      },
-      password: {
-        value: '',
-        errors: []
-      },
-      confirmpassword: {
-        value: '',
-        errors: []
-      }
+      firstname: { value: '', errors: [] },
+      lastname: { value: '', errors: [] },
+      email: { value: '', errors: [] },
+      password: { value: '', errors: [] },
+      confirmpassword: { value: '', errors: [] }
     }
   }),
-  computed: {
-    formData () {
-      const data = {}
-      for (const [key, val] of Object.entries(this.form)) {
-        data[key] = val.value
-      }
-      return data
-    }
-  },
   methods: {
     async register () {
       this.isLoading = true
@@ -74,19 +50,6 @@ export default {
       } catch (error) {
         this.showErrors(error.response.data.errors)
         this.isLoading = false
-      }
-    },
-    showErrors (errors) {
-      for (const [key] of Object.entries(this.form)) {
-        this.form[key].errors = []
-      }
-
-      if (errors) {
-        errors.forEach((error) => {
-          this.form[error.fieldName].errors.push(error.message)
-        })
-      } else {
-        this.error = true
       }
     }
   }

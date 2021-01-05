@@ -33,7 +33,10 @@
 </template>
 
 <script>
+import api from '@/mixins/api'
+
 export default {
+  mixins: [api],
   props: {
     category: {
       type: Object,
@@ -41,7 +44,6 @@ export default {
     }
   },
   data: () => ({
-    isLoading: false,
     editing: false,
     deleteModal: false,
     form: {
@@ -51,15 +53,6 @@ export default {
       }
     }
   }),
-  computed: {
-    formData () {
-      const data = {}
-      for (const [key, val] of Object.entries(this.form)) {
-        data[key] = val.value
-      }
-      return data
-    }
-  },
   mounted () {
     this.form.name.value = this.category.name
   },
@@ -90,15 +83,6 @@ export default {
         this.showErrors(error.response.data.errors)
         this.isLoading = false
       }
-    },
-    showErrors (errors) {
-      for (const [key] of Object.entries(this.form)) {
-        this.form[key].errors = []
-      }
-
-      errors.forEach((error) => {
-        this.form[error.fieldName].errors.push(error.message)
-      })
     }
   }
 }

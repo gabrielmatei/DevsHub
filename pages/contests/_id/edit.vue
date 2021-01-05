@@ -28,6 +28,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import api from '@/mixins/api'
 import DeleteModal from '@/components/modals/DeleteModal'
 
 export default {
@@ -38,11 +39,11 @@ export default {
   components: {
     DeleteModal
   },
+  mixins: [api],
   async fetch ({ store, route }) {
     await store.dispatch('contests/getContest', { id: route.params.id })
   },
   data: () => ({
-    isLoading: false,
     deleteModal: false,
     form: {
       name: {
@@ -74,14 +75,7 @@ export default {
       contest: (state) => {
         return state.contests.contest
       }
-    }),
-    formData () {
-      const data = {}
-      for (const [key, val] of Object.entries(this.form)) {
-        data[key] = val.value
-      }
-      return data
-    }
+    })
   },
   mounted () {
     for (const [key] of Object.entries(this.form)) {
@@ -101,15 +95,6 @@ export default {
         this.showErrors(error.response.data.errors)
         this.isLoading = false
       }
-    },
-    showErrors (errors) {
-      for (const [key] of Object.entries(this.form)) {
-        this.form[key].errors = []
-      }
-
-      errors.forEach((error) => {
-        this.form[error.fieldName].errors.push(error.message)
-      })
     },
     async deleteEntity () {
       this.isLoading = true
