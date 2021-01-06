@@ -2,16 +2,16 @@
   <div class="container">
     <loader v-if="isLoading" />
     <div class="header">
-      <h1>Editeaza tutorial</h1>
+      <h1>{{ $t('tutorials.edit') }}</h1>
       <button class="btn btn-danger" @click.prevent="deleteModal = true">
-        Sterge
+        {{ $t('tutorials.form.delete') }}
       </button>
     </div>
     <form>
-      <FormField :model="form.title" type="input" placeholder="title" />
-      <FormField :model="form.content" type="textarea" placeholder="content" />
+      <FormField :model="form.title" type="input" :placeholder="$t('tutorials.form.title')" />
+      <FormField :model="form.content" type="textarea" :placeholder="$t('tutorials.form.content')" />
       <button class="btn btn-primary" @click.prevent="save">
-        Salveaza
+        {{ $t('tutorials.form.save') }}
       </button>
     </form>
     <DeleteModal
@@ -19,7 +19,7 @@
       @delete="deleteEntity"
       @close="deleteModal = false"
     >
-      Are ??
+      {{ $t('tutorials.form.deleteMessage') }}
     </DeleteModal>
   </div>
 </template>

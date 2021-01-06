@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <loader v-if="isLoading" />
-    <h1>Editeaza profil</h1>
+    <h1>{{ $t('account.edit') }}</h1>
     <form>
-      <FormField :model="form.firstname" type="input" placeholder="firstname" />
-      <FormField :model="form.lastname" type="input" placeholder="lastname" />
+      <FormField :model="form.firstname" type="input" :placeholder="$t('account.editPage.firstName')" />
+      <FormField :model="form.lastname" type="input" :placeholder="$t('account.editPage.lastName')" />
       <button class="btn btn-primary" @click.prevent="save">
-        Salveaza
+        {{ $t('account.editPage.save') }}
       </button>
     </form>
   </div>

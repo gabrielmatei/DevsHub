@@ -3,7 +3,7 @@
     <div class="header">
       <h1>{{ contest.name }}</h1>
       <nuxt-link v-if="role ==='admin' || role === 'organizer'" :to="`/contests/${contest.id}/edit`" class="btn btn-primary">
-        Edit
+        {{ $t('contests.edit') }}
       </nuxt-link>
     </div>
     <p class="date">

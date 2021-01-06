@@ -3,7 +3,7 @@
     <div class="header">
       <h1>{{ $t('contests.title') }}</h1>
       <nuxt-link v-if="role ==='admin' || role === 'organizer'" to="/contests/new" class="btn btn-primary">
-        Adauga concurs
+        {{ $t('contests.add') }}
       </nuxt-link>
     </div>
     <ContestListView v-for="contest in contests" :key="contest.id" :contest="contest" />

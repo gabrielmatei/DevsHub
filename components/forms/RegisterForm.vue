@@ -2,18 +2,18 @@
   <div>
     <loader v-if="isLoading" />
     <div v-if="error" class="alert alert-danger">
-      A aparut o eroare
+      {{ $t('account.register.error') }}
     </div>
     <h2 class="mb-20">
-      Register
+      {{ $t('account.register.title') }}
     </h2>
-    <FormField :model="form.firstname" type="input" placeholder="firstName" />
-    <FormField :model="form.lastname" type="input" placeholder="lastName" />
-    <FormField :model="form.email" type="email" placeholder="email" />
-    <FormField :model="form.password" type="password" placeholder="password" />
-    <FormField :model="form.confirmpassword" type="password" placeholder="confirm password" />
+    <FormField :model="form.firstname" type="input" :placeholder="$t('account.register.firstName')" />
+    <FormField :model="form.lastname" type="input" :placeholder="$t('account.register.lastName')" />
+    <FormField :model="form.email" type="email" :placeholder="$t('account.register.email')" />
+    <FormField :model="form.password" type="password" :placeholder="$t('account.register.password')" />
+    <FormField :model="form.confirmpassword" type="password" :placeholder="$t('account.register.confirmPassword')" />
     <button class="btn btn-primary w-100" @click.prevent="register">
-      Register
+      {{ $t('account.register.button') }}
     </button>
   </div>
 </template>

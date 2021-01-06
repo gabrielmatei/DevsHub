@@ -11,7 +11,7 @@
     </div>
     <div class="actions">
       <nuxt-link v-if="role ==='admin'" :to="`/announcements/${announcement.id}/edit`" class="btn">
-        Edit
+        {{ $t('announcements.edit') }}
       </nuxt-link>
     </div>
   </div>

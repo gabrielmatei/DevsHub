@@ -2,15 +2,15 @@
   <div class="container">
     <loader v-if="isLoading" />
     <div class="header">
-      <h1>Adauga concurs</h1>
+      <h1>{{ $t('contests.edit') }}</h1>
     </div>
     <form>
-      <FormField :model="form.name" type="input" placeholder="name" />
-      <FormField :model="form.description" type="textarea" placeholder="description" />
+      <FormField :model="form.name" type="input" :placeholder="$t('contests.form.name')" />
+      <FormField :model="form.description" type="textarea" :placeholder="$t('contests.form.description')" />
       <FormField :model="form.start" type="date" />
       <FormField :model="form.end" type="date" />
       <button class="btn btn-primary" @click.prevent="add">
-        Adauga
+        {{ $t('contests.form.add') }}
       </button>
     </form>
   </div>

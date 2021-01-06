@@ -8,20 +8,20 @@
     </div>
     <div v-if="!editing" class="actions">
       <button class="btn btn-primary mr-10" @click.prevent="editing = true">
-        Editeaza
+        {{ $t('tutorialCategories.form.edit') }}
       </button>
       <button class="btn btn-danger" @click.prevent="deleteModal = true">
-        Sterge
+        {{ $t('tutorialCategories.form.delete') }}
       </button>
     </div>
 
-    <FormField v-if="editing" :model="form.name" type="input" placeholder="name" css-class="form-field" />
+    <FormField v-if="editing" :model="form.name" type="input" :placeholder="$t('tutorialCategories.form.name')" css-class="form-field" />
     <div v-if="editing" class="actions">
       <button class="btn btn-primary mr-10" @click.prevent="save">
-        Salveaza
+        {{ $t('tutorialCategories.form.save') }}
       </button>
       <button class="btn btn-danger" @click.prevent="editing = false">
-        Anulare
+        {{ $t('tutorialCategories.form.cancel') }}
       </button>
     </div>
     <DeleteModal
@@ -29,7 +29,7 @@
       @delete="deleteEntity"
       @close="deleteModal = false"
     >
-      Are ??
+      {{ $t('tutorialCategories.form.deleteMessage') }}
     </DeleteModal>
   </div>
 </template>

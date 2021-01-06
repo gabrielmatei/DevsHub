@@ -2,7 +2,7 @@
   <div class="container">
     <loader v-if="isLoading" />
     <div class="header">
-      <h1>Adauga anunt</h1>
+      <h1>{{ $t('announcements.add') }}</h1>
     </div>
     <form>
       <div class="form-field mb-20">
@@ -11,7 +11,7 @@
           v-model="title.value"
           :class="`input ${title.errors.length > 0 ? 'invalid' : ''}`"
           type="text"
-          placeholder="title"
+          :placeholder="$t('announcements.form.title')"
         >
         <span v-for="error in title.errors" :key="error" class="error">
           {{ error }}
@@ -23,7 +23,7 @@
           v-model="type.value"
           :class="`input ${type.errors.length > 0 ? 'invalid' : ''}`"
           type="text"
-          placeholder="type"
+          :placeholder="$t('announcements.form.type')"
         >
         <span v-for="error in type.errors" :key="error" class="error">
           {{ error }}
@@ -35,7 +35,7 @@
           v-model="body.value"
           :class="`input ${body.errors.length > 0 ? 'invalid' : ''}`"
           type="text"
-          placeholder="body"
+          :placeholder="$t('announcements.form.body')"
           rows="4"
         />
         <span v-for="error in body.errors" :key="error" class="error">
@@ -59,7 +59,7 @@
         </span>
       </div>
       <button class="btn btn-primary" @click.prevent="add">
-        Adauga
+        {{ $t('announcements.add') }}
       </button>
     </form>
   </div>

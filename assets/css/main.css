@@ -282,6 +282,10 @@ a.card:hover {
 .card .title {
   font-size: 1.25rem;
 }
+
+.card.card-danger {
+  background-color: var(--red);
+}
 /* END CARDS */
 
 /* CHIP */

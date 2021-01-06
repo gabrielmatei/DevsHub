@@ -2,18 +2,18 @@
   <div class="container">
     <loader v-if="isLoading" />
     <div class="header">
-      <h1>Editeaza concurs</h1>
+      <h1>{{ $t('contests.edit') }}</h1>
       <button class="btn btn-danger" @click.prevent="deleteModal = true">
-        Sterge
+        {{ $t('contests.form.delete') }}
       </button>
     </div>
     <form>
-      <FormField :model="form.name" type="input" placeholder="name" />
-      <FormField :model="form.description" type="textarea" placeholder="description" />
+      <FormField :model="form.name" type="input" :placeholder="$t('contests.form.name')" />
+      <FormField :model="form.description" type="textarea" :placeholder="$t('contests.form.description')" />
       <FormField :model="form.start" type="date" />
       <FormField :model="form.end" type="date" />
       <button class="btn btn-primary" @click.prevent="save">
-        Salveaza
+        {{ $t('contests.form.save') }}
       </button>
     </form>
     <DeleteModal
@@ -21,7 +21,7 @@
       @delete="deleteEntity"
       @close="deleteModal = false"
     >
-      Are ??
+      {{ $t('contests.form.deleteMessage') }}
     </DeleteModal>
   </div>
 </template>

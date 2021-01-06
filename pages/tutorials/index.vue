@@ -3,7 +3,7 @@
     <div class="header">
       <h1>{{ $t('tutorials.title') }}</h1>
       <nuxt-link v-if="isAuthenticated" to="/tutorials/new" class="btn btn-primary">
-        Adauga tutorial
+        {{ $t('tutorials.add') }}
       </nuxt-link>
     </div>
     <div class="content">
@@ -12,7 +12,7 @@
       </div>
       <div class="aside card">
         <h3 class="mb-20">
-          Categorii
+          {{ $t('tutorials.categories') }}
         </h3>
         <p v-for="category in categories" :key="category.id">
           {{ category.name }}

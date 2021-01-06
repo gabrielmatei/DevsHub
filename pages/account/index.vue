@@ -3,11 +3,11 @@
     <div class="header">
       <h1>{{ loggedInUser.profile.name }}</h1>
       <nuxt-link to="/account/edit" class="btn btn-primary">
-        Editeaza
+        {{ $t('account.edit') }}
       </nuxt-link>
     </div>
     <button class="btn btn-danger" @click="logout">
-      Log out
+      {{ $t('account.logout') }}
     </button>
   </div>
 </template>

@@ -7,7 +7,7 @@
       </h4>
     </div>
     <div class="actions">
-      <span class="date">Organizator</span>
+      <span class="date"> {{ $t('contests.organizer') }}</span>
       <span class="organizer mb-10">{{ contest.organizer.name }}</span>
       <span class="chip">{{ $t('users.rating') }} {{ contest.organizer.rating }}</span>
     </div>

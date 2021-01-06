@@ -1,16 +1,16 @@
 <template>
   <div>
     <loader v-if="isLoading" />
-    <div v-if="error" class="alert alert-danger">
-      Emailul si parola nu se potrivesc
+    <div v-if="error" class="card card-danger">
+      {{ $t('account.login.error') }}
     </div>
     <h2 class="mb-20">
-      Log in
+      {{ $t('account.login.title') }}
     </h2>
-    <FormField :model="form.email" type="email" placeholder="email" />
-    <FormField :model="form.password" type="password" placeholder="password" />
+    <FormField :model="form.email" type="email" :placeholder="$t('account.login.email')" />
+    <FormField :model="form.password" type="password" :placeholder="$t('account.login.password')" />
     <button class="btn btn-primary w-100" @click.prevent="login">
-      Log in
+      {{ $t('account.login.button') }}
     </button>
   </div>
 </template>

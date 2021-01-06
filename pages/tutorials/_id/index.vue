@@ -3,11 +3,11 @@
     <div class="header">
       <h1>{{ tutorial.title }}</h1>
       <nuxt-link v-if="isAuthenticated" :to="`/tutorials/${tutorial.id}/edit`" class="btn btn-primary">
-        Edit
+        {{ $t('tutorials.edit') }}
       </nuxt-link>
     </div>
-    <p>Data: {{ tutorial.updatedAt | formatDateTime }}</p>
-    <p>Autor: {{ tutorial.author.name }}</p>
+    <p>{{ $t('tutorials.date') }}: {{ tutorial.updatedAt | formatDateTime }}</p>
+    <p>{{ $t('tutorials.author') }}: {{ tutorial.author.name }}</p>
     <p>{{ tutorial.content }}</p>
   </div>
 </template>

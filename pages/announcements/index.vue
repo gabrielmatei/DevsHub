@@ -3,7 +3,7 @@
     <div class="header">
       <h1>{{ $t('announcements.title') }}</h1>
       <nuxt-link v-if="role ==='admin'" to="/announcements/new" class="btn btn-primary">
-        Adauga anunt
+        {{ $t('announcements.add') }}
       </nuxt-link>
     </div>
     <AnnouncementListView v-for="announcement in announcements" :key="announcement.id" :announcement="announcement" />

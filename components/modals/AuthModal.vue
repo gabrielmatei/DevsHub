@@ -3,7 +3,7 @@
     <div class="container">
       <div class="header">
         <button class="btn btn-danger" @click="$emit('close')">
-          Close
+          {{ $t('account.modal.close') }}
         </button>
       </div>
       <div class="body">
@@ -11,9 +11,9 @@
         <RegisterForm v-else />
       </div>
       <div class="footer">
-        .... ?
+        {{ isLogin ? $t('account.modal.register') : $t('account.modal.login') }}
         <button class="btn" @click="swapForm()">
-          {{ isLogin ? 'Register' : 'Log in' }}
+          {{ isLogin ? $t('account.register.title') : $t('account.login.title') }}
         </button>
       </div>
     </div>
@@ -39,3 +39,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.footer {
+  align-items: center;
+}
+</style>

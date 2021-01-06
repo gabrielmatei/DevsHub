@@ -2,9 +2,9 @@
   <div class="container">
     <loader v-if="isLoading" />
     <div class="header">
-      <h1>Editeaza anunt</h1>
+      <h1>{{ $t('announcements.edit') }}</h1>
       <button class="btn btn-danger" @click.prevent="deleteModal = true">
-        Sterge
+        {{ $t('announcements.delete') }}
       </button>
     </div>
     <form>
@@ -14,7 +14,7 @@
           v-model="title.value"
           :class="`input ${title.errors.length > 0 ? 'invalid' : ''}`"
           type="text"
-          placeholder="title"
+          :placeholder="$t('announcements.form.title')"
         >
         <span v-for="error in title.errors" :key="error" class="error">
           {{ error }}
@@ -26,7 +26,7 @@
           v-model="type.value"
           :class="`input ${type.errors.length > 0 ? 'invalid' : ''}`"
           type="text"
-          placeholder="type"
+          :placeholder="$t('announcements.form.type')"
         >
         <span v-for="error in type.errors" :key="error" class="error">
           {{ error }}
@@ -38,7 +38,7 @@
           v-model="body.value"
           :class="`input ${body.errors.length > 0 ? 'invalid' : ''}`"
           type="text"
-          placeholder="body"
+          :placeholder="$t('announcements.form.body')"
           rows="4"
         />
         <span v-for="error in body.errors" :key="error" class="error">
@@ -62,7 +62,7 @@
         </span>
       </div>
       <button class="btn btn-primary" @click.prevent="save">
-        Salveaza
+        {{ $t('announcements.save') }}
       </button>
     </form>
     <DeleteModal
@@ -70,7 +70,7 @@
       @delete="deleteEntity"
       @close="deleteModal = false"
     >
-      Are ??
+      {{ $t('announcements.deleteMessage') }}
     </DeleteModal>
   </div>
 </template>

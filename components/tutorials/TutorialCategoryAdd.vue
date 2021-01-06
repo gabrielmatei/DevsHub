@@ -1,9 +1,9 @@
 <template>
   <div class="card tutorial-category add">
     <form>
-      <FormField :model="form.name" type="input" placeholder="name" css-class="form-field" />
+      <FormField :model="form.name" type="input" :placeholder="$t('tutorialCategories.form.name')" css-class="form-field" />
       <button class="btn btn-primary" @click.prevent="add">
-        Adauga
+        {{ $t('tutorialCategories.form.add') }}
       </button>
     </form>
   </div>

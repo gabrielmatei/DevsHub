@@ -7,17 +7,17 @@
         <span :class="`chip chip-${user.role}`">{{ user.role }}</span>
       </h1>
       <nuxt-link v-if="role ==='admin'" :to="`/users/${user.id}/edit`" class="btn btn-primary">
-        Edit
+        {{ $t('users.edit') }}
       </nuxt-link>
     </div>
 
     <h3 v-if="user.contests.length > 0" class="subtitle mb-20">
-      Concursuri
+      {{ $t('users.contests') }}
     </h3>
     <ContestListView v-for="contest in user.contests" :key="contest.id" :contest="contest" />
 
     <h3 v-if="user.tutorials.length > 0" class="subtitle mb-20">
-      Tutoriale
+      {{ $t('users.tutorials') }}
     </h3>
     <TutorialListView v-for="tutorial in user.tutorials" :key="tutorial.id" :tutorial="tutorial" />
   </div>

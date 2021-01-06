@@ -2,11 +2,11 @@
   <div class="container">
     <loader v-if="isLoading" />
     <div class="header">
-      <h1>Adauga tutorial</h1>
+      <h1>{{ $t('tutorials.add') }}</h1>
     </div>
     <form>
-      <FormField :model="form.title" type="input" placeholder="title" />
-      <FormField :model="form.content" type="textarea" placeholder="content" />
+      <FormField :model="form.title" type="input" :placeholder="$t('tutorials.form.title')" />
+      <FormField :model="form.content" type="textarea" :placeholder="$t('tutorials.form.content')" />
       <div class="form-field mb-20 categories">
         <span
           v-for="category in categories"
@@ -16,7 +16,7 @@
         >{{ category.name }}</span>
       </div>
       <button class="btn btn-primary" @click.prevent="add">
-        Adauga
+        {{ $t('tutorials.form.add') }}
       </button>
     </form>
   </div>

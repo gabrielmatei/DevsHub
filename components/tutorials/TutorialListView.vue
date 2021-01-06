@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="actions">
-      <span class="date">Autor</span>
+      <span class="date">{{ $t('tutorials.author') }}</span>
       <span class="mb-10">{{ tutorial.author.name }}</span>
       <span class="chip">{{ $t('users.rating') }} {{ tutorial.author.rating }}</span>
     </div>

@@ -2,15 +2,15 @@
   <div class="container">
     <loader v-if="isLoading" />
     <div class="header">
-      <h1>Editeaza utilizator</h1>
+      <h1>{{ $t('users.edit') }}</h1>
       <button class="btn btn-danger" @click.prevent="deleteModal = true">
-        Sterge
+        {{ $t('users.delete') }}
       </button>
     </div>
     <form>
-      <FormField :model="form.role" type="input" placeholder="role" />
+      <FormField :model="form.role" type="input" :placeholder="$t('users.role')" />
       <button class="btn btn-primary" @click.prevent="save">
-        Salveaza
+        {{ $t('users.save') }}
       </button>
     </form>
     <DeleteModal
@@ -18,7 +18,7 @@
       @delete="deleteEntity"
       @close="deleteModal = false"
     >
-      Are ??
+      {{ $t('users.deleteMessage') }}
     </DeleteModal>
   </div>
 </template>
