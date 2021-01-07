@@ -20,7 +20,7 @@ export default {
 
       if (errors) {
         errors.forEach((error) => {
-          this.form[error.fieldName].errors.push(error.message)
+          this.form[error.fieldName].errors.push(this.$t(`validationErrors.${error.message}`))
         })
       } else {
         this.error = true

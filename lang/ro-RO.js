@@ -113,5 +113,23 @@ export default {
       type: 'Tip anunț',
       body: 'Anunț'
     }
+  },
+  validationErrors: {
+    notNull: 'Câmpul nu poate fi gol',
+    notEmpty: 'Câmpul nu poate fi gol',
+    minimumLength: 'Trebuie să introduceți mai mult de 3 caractere',
+    maximumLength: 'Trebuie să introduceți mai putin de 150 caractere',
+    emailAddress: 'Nu este o adresa de email validă',
+    passwordMinimumLength: 'Parola trebuie să conțină minim 6 carctere',
+    passwordMaximumLength: 'Parola trebuie să conțină maxim 16 caractere',
+    passwordUppercaseLetter: 'Parola trebuie sa conțină o literă mare',
+    passwordLowercaseLetter: 'Parola trebuie sa conțină o literă mică',
+    passwordDigit: 'Parola trebuie sa conțină un număr',
+    passwordSpecialCharacter: 'Parola trebuie sa conțină un caracter special',
+    confirmPassword: 'Parolele nu corespund',
+    isRole: 'Nu este un rol valid',
+    isAnnouncementType: 'Nu este un tip de anunț valid',
+    greaterThanNow: 'Data trebuie sa fie mai mare decat cea curenta',
+    greaterThanStart: 'Data trebuie sa fie mai mare decat data de început'
   }
 }
