@@ -122,7 +122,7 @@ export default {
       this.end.errors = []
 
       errors.forEach((error) => {
-        this[error.fieldName].errors.push(error.message)
+        this[error.fieldName].errors.push(this.$t(`validationErrors.${error.message}`))
       })
     }
   }
